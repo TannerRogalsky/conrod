@@ -268,7 +268,7 @@ macro_rules! convert_window_event {
             | winit::event::WindowEvent::DroppedFile(_)
             | winit::event::WindowEvent::HoveredFile(_)
             | winit::event::WindowEvent::HoveredFileCancelled
-            | winit::event::WindowEvent::ModifiersChanged { .. }
+            // | winit::event::WindowEvent::ModifiersChanged { .. }
             | winit::event::WindowEvent::CursorEntered { .. }
             | winit::event::WindowEvent::CursorLeft { .. }
             | winit::event::WindowEvent::TouchpadPressure { .. }
@@ -276,6 +276,8 @@ macro_rules! convert_window_event {
             | winit::event::WindowEvent::RedrawRequested
             | winit::event::WindowEvent::HiDpiFactorChanged(_)
             | winit::event::WindowEvent::Destroyed => None,
+
+            _ => None,
         }
     }};
 }
